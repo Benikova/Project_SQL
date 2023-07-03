@@ -1,1 +1,8 @@
 
+SELECT 
+	REPLACE(`Year`, ',', ' ') AS 'Year',
+	REPLACE(concat(round(avg(Wages)), ' ', `Unit_(Kč,tis.os.)`), ',', ' ') AS Average_wages,
+	Industry_branch 
+FROM t_zuzana_benikova_project_sql_primary_final tzbpspf 
+WHERE Value_type = 'Průměrná hrubá mzda na zaměstnance' AND Payroll_calculation = 'fyzický' AND Industry_branch IS NOT NULL
+GROUP BY Industry_branch, `Year`
