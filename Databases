@@ -12,3 +12,16 @@ CREATE OR REPLACE TABLE t_zuzana_benikova_project_SQL_primary_final AS
 		JOIN czechia_payroll_unit cpu ON cpay.unit_code = cpu.code 
 		JOIN czechia_payroll_value_type cpvt ON cpay.value_type_code = cpvt.code
 	WHERE cpay.value IS NOT NULL AND cpr.region_code IS NULL;
+
+
+
+
+
+
+CREATE OR REPLACE TABLE t_zuzana_benikova_project_SQL_secondary_final AS
+	SELECT c.country, e.`year`, e.GDP, e.gini, c.population 
+	FROM countries c 
+	LEFT JOIN economies e ON c.country = e.country
+	WHERE c.continent = 'Europe' AND e.`year` BETWEEN 2000 AND 2020; 
+
+
