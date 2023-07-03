@@ -1,0 +1,14 @@
+CREATE OR REPLACE TABLE t_zuzana_benikova_project_SQL_primary_final AS
+	SELECT YEAR(cpr.date_from) AS 'Year', cpay.payroll_quarter AS 'Quarter', 
+		cpr.value AS Food_price, cprc.name AS Category_food, cprc.price_value AS Quantity, 
+		cprc.price_unit AS 'Unit_(kg,g,l,ks)', cpay.value AS Wages, cpu.name AS 'Unit_(Kč,tis.os.)', 
+		cpc.name AS Payroll_calculation, cpvt.name AS Value_type, cpib.name AS Industry_branch, cpr.region_code AS Code_CR
+	FROM czechia_price cpr
+		JOIN czechia_price_category cprc ON cpr.category_code = cprc.code
+		LEFT JOIN czechia_region cr ON cr.code = cpr.region_code AND cpr.region_code IS NULL
+		JOIN czechia_payroll cpay ON cpay.payroll_year = YEAR(cpr.date_from)
+		JOIN czechia_payroll_calculation cpc ON cpay.calculation_code = cpc.code 
+		JOIN czechia_payroll_industry_branch cpib ON cpay.industry_branch_code = cpib.code 
+		JOIN czechia_payroll_unit cpu ON cpay.unit_code = cpu.code 
+		JOIN czechia_payroll_value_type cpvt ON cpay.value_type_code = cpvt.code
+	WHERE cpay.value IS NOT NULL AND cpr.region_code IS NULL;
