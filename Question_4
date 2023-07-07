@@ -14,5 +14,8 @@ WHERE Value_type = 'Průměrná hrubá mzda na zaměstnance' AND Payroll_calcula
 GROUP BY `Year`
 
 
-/* Počas celého sledovaného obdobia nebol rast cien výrazne vyšší (viac ako 10 %), ako rast miezd. 
-Najvýraznejší nárast môžme pozorovať v roku 2017, kde priemerné ceny potravín vzrástli o 9,98% a priemerná výška miezd iba o 6,4%. */
+
+/* 
+Počas celého sledovaného obdobia nebol rast cien výrazne vyšší (viac ako 10 %), ako rast miezd. 
+Najvýraznejší nárast môžme pozorovať v roku 2017, kde priemerné ceny potravín vzrástli o 9,98% a priemerná výška miezd iba o 6,4%. 
+*/
