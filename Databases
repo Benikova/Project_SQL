@@ -25,3 +25,17 @@ CREATE OR REPLACE TABLE t_zuzana_benikova_project_SQL_secondary_final AS
 	WHERE c.continent = 'Europe' AND e.`year` BETWEEN 2000 AND 2020; 
 
 
+
+
+# -- view pre vizualne zjednodusenie final tabulky --
+CREATE OR REPLACE VIEW Average_wages_and_food_2006_2018 AS
+SELECT 
+	REPLACE(`Year`, ',', ' ') AS 'Year',
+	Category_food AS Food_name,
+	REPLACE(concat(Food_price, ' Kč / ', Quantity, ' ', `Unit_(kg,g,l,ks)`), '.', ',') AS Price,
+	REPLACE(concat(round(avg(Wages)), ' ', `Unit_(Kč,tis.os.)`), ',', ' ') AS Average_wages, 
+	Industry_branch 
+FROM t_zuzana_benikova_project_sql_primary_final tzbpspf 
+WHERE Value_type = 'Průměrná hrubá mzda na zaměstnance' AND Payroll_calculation = 'fyzický' AND Industry_branch IS NOT NULL 
+GROUP BY `Year`, Category_food, Industry_branch 
+ORDER BY `Year`;
