@@ -16,18 +16,19 @@ CREATE OR REPLACE TABLE t_zuzana_benikova_project_SQL_primary_final AS
 
 
 
-
-
 CREATE OR REPLACE TABLE t_zuzana_benikova_project_SQL_secondary_final AS
 	SELECT c.country, e.`year`, e.GDP, e.gini, c.population 
 	FROM countries c 
 	LEFT JOIN economies e ON c.country = e.country
-	WHERE c.continent = 'Europe' AND e.`year` BETWEEN 2000 AND 2020; 
+	WHERE c.continent = 'Europe' AND e.`year` BETWEEN 2006 AND 2018; 
+
+/* Prostredníctvom tabuliek "countries" a "economies" sme spracovali dodatočné data o Európských štátoch a 
+vytvorili databázovú tabuľku s názvom "t_zuzana_benikova_project_SQL_secondary_final". 
+Primárne obsahuje HDP, GINI, populáciu ďalších európských štátov v rovnakom období (r.2006-2018), ako je primárny prehľad pre ČR. */
 
 
 
-
-# -- view pre vizualne zjednodusenie final tabulky --
+# -- view pre vizualne zjednodusenie primary_final tabulky --
 CREATE OR REPLACE VIEW Average_wages_and_food_2006_2018 AS
 SELECT 
 	REPLACE(`Year`, ',', ' ') AS 'Year',
