@@ -17,5 +17,8 @@ GROUP BY
 ORDER BY Average_percentage_change ASC
 LIMIT 1;
 
-/* Priemerný najnižší percentuálny medziročný nárast v sledovanom období je u kategórie potravín: Cukr krystalový, a to -1,92%,
-čiže táto kategória zdražuje najpomalšie. */
+
+/* 
+Priemerný najnižší percentuálny medziročný nárast v sledovanom období je u kategórie potravín: Cukr krystalový, a to -1,92%,
+čiže táto kategória zdražuje najpomalšie. 
+*/
