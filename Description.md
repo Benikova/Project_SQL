@@ -1,3 +1,6 @@
+# Zuzi
+Zuzi#9300
+
 # Project_SQL
 
 Zadání projektu: Data o mzdách a cenách potravin a jejich zpracování pomocí SQL
