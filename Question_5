@@ -11,7 +11,7 @@ SELECT
 FROM t_zuzana_benikova_project_sql_primary_final tzbpspf
 JOIN t_zuzana_benikova_project_sql_secondary_final tzbpssf ON tzbpspf.`Year` = tzbpssf.`year` 
 WHERE Value_type = 'Průměrná hrubá mzda na zaměstnance' AND Payroll_calculation = 'fyzický' AND Industry_branch IS NOT NULL AND country = 'Czech Republic'
-GROUP BY `Year`
+GROUP BY `Year`;
 
 
 
