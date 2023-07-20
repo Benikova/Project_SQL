@@ -11,7 +11,7 @@ SELECT
 		/ lag(avg(Food_price)) OVER (ORDER BY `Year`)) * 100, 2) AS Percentage_change_price
 FROM t_zuzana_benikova_project_sql_primary_final tzbpspf
 WHERE Value_type = 'Průměrná hrubá mzda na zaměstnance' AND Payroll_calculation = 'fyzický' AND Industry_branch IS NOT NULL
-GROUP BY `Year`
+GROUP BY `Year`;
 
 
 
