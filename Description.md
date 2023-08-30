@@ -1,5 +1,5 @@
-# Zuzi
-Zuzi#9300
+Discord: Zuzi#9300
+
 
 # Project_SQL
 
